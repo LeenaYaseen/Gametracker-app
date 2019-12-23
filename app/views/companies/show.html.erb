@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @company.name %> Songs</h1>
+<%= link_to "New Game", new_game_path(:company_id => @company.id), { :class => "button waves-effect waves-light btn" } %>
+
+<br><br>
+
+<table class="striped bordered">
+<tr>
+  <th>Name</th>
+  <th>Genre</th>
+  <th>Image</th>
+  <th>Status</th>
+  <th>Edit</th>
+
+
+ 
+
+</tr>
+
+  <% @games.each do |game| %>
+    <tr>
+    <td><%=game.title%></td>
+    <td><%=game.genre%></td>
+    <td><%=image_tag(game.cover, size: "50x50",alt:"Game Image") %></td>
+    <td><%=game.status%></td>
+    <td><a class="btn-floating btn-large red" href="<%= edit_game_path(game) %>" >
+           <em class="large material-icons">Edit</em>
+          </a>
+          </td>
+
+
+   
+
+    <td><%= button_to "Delete", game_path(game.id), method: :delete,
+              data: { confirm: "Are you sure?" } %>
+    </td>
+
+
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Back', companies_path %>

@@ -1,0 +1,27 @@
+<%= link_to "Add a Company", new_company_path, { :class => "button waves-effect waves-light btn" } %>
+<br><br>
+
+<table class="striped bordered">
+  <tr>
+    <th>Company Name</th>
+    <th>Platform</th>
+    <th>Logo</th>
+  </tr>
+
+  <% @companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company_path(company) %></td>
+        <td><%= company.platform %></td>
+        <td><%= image_tag(company.logo, size: "100x100", alt: "Company Image") %></td>
+        <td><a class="btn-floating btn-large red" href="<%= edit_company_path(company) %>" >
+           <em class="large material-icons">Edit</em>
+          </a>
+          </td>
+        <td> 
+           <%= button_to "Delete", company_path(company.id), method: :delete,
+              data: { confirm: "Are you sure?" } %>
+              </td>
+
+        </tr>
+  <% end %>
+</table>
