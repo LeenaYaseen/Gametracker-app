@@ -1,22 +1,36 @@
 <%= form_for @game do |f| %>
-    <div class="input-field col s6">
-        <%= f.label :title, 'Title' %>
-        <%= f.text_field :title %>
-    </div>
+
+    <%= f.hidden_field :company_id, :value => @company.id %>
     
-    <div class="input-field col s6">
-        <%= f.label :genre, 'Genre' %>
+
+<div class="input-field col s6">
+
+        <p class = "form_comp"><%= f.label :title, 'Title' %></p>
+        <%= f.text_field :title %>
+</div>
+    
+<div class="input-field col s6">
+        <p class = "form_comp"><%= f.label :genre, 'Genre' %></p>
         <%= f.text_field :genre %>
-    </div>
+</div>
 
-    <div class="input-field col s6">
-        <%= f.label :cover, 'Game Cover' %>
-        <%= f.text_field :cover %>
-    </div>
+<div class="input-field col s6">
+    <p class = "form_comp"><%= f.label :cover, 'Game Cover (URL)' %></p>
+    <%= f.text_field :cover %>
+</div>
 
-    <div class="input-field col s6">
-        <%= f.label :status, 'Game Status' %>
-        <%= f.text_field :status %>
-    </div>
-    <%= f.submit "Submit", :class => "btn waves-effect waves-light" %>
-  <% end %>
+
+<div class="input-field col s6">
+<p class = "form_comp"><%= f.label :status, 'Game Status' %></p>
+<%= f.select :status, options_for_select([["Select One", ""], "true", "false"]), :class => 'genForm_dropBox' %>
+</div>
+<br>
+<br>
+<br>
+
+    <%= f.submit "Submit", :class => "btn btn-success" %> 
+    <%= link_to 'Back', companies_path , { :class => "btn btn-warning"}%>
+
+<% end %>
+
+  

@@ -15,3 +15,13 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require bootstrap
+//= require jquery.slimscroll.min
+//= require_tree .
+//= require twitter/bootstrap

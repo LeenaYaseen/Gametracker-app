@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+
     def index
         @games = Game.all  
     end
@@ -9,19 +10,22 @@ class GamesController < ApplicationController
 
       def create
         puts params
-        @company = Company.find(params[:game][:company_id])
-        Game.create(params.require(:game).permit(:title, :genre, :cover , :status ,:company_id))
+        company = Company.find(params[:game][:company_id])
+        Game.create(params.require(:game).permit(:title, :genre, :cover , :status , :company_id))
                
-        redirect_to company
+         redirect_to companies_path
+
+
       end
 
       def edit
         @game  = Game.find(params[:id])
+        
       end
 
       def update
         game = Game.find(params[:id])
-        game.update(params.require(:game).permit(:status))
+        game.update(params.require(:game).permit(:title, :genre, :cover , :status , :company_id))
           
         redirect_to companies_path
       end
@@ -29,6 +33,7 @@ class GamesController < ApplicationController
       def destroy
         Game.find(params[:id]).destroy
       
-        redirect_to companies_path
+        redirect_to request.referrer
       end
 end
+#request_referer

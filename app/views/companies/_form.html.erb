@@ -1,15 +1,25 @@
+
+
 <%= form_for @company do |f| %>
+
     <div class="input-field col s6">
-        <%= f.label :name, 'Company Name'%>
+        <p class = "form_comp"><%= f.label :name, 'Company Name'%></p>
         <%= f.text_field :name%>
     </div>
     <div class="input-field col s6">
-        <%= f.label :platform, 'Platform used' %>
+        <p class = "form_comp"><%= f.label :platform, 'Platform used' %></p>
         <%= f.text_field :platform %>
     </div>
     <div class="input-field col s6">
-        <%= f.label :logo, 'Logo' %>
+        <p class = "form_comp"><%= f.label :logo, 'Logo (URL)' %></p>
         <%= f.text_field :logo %>
     </div>
-    <%= f.submit "Submit", :class => "btn waves-effect waves-light" %>
+    <br>
+
+    <%= f.submit "Submit", :class => "btn btn-success" %> 
+    <%= link_to 'Back', companies_path , { :class => "btn btn-warning"}%>
+
+
   <% end %>
+
+  

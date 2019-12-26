@@ -1,0 +1,133 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.card-group
+{
+    display:flex;
+    justify-content:space-evenly ;
+   
+}
+.card
+{
+    border:solid #348682;
+    border-radius: 10%;
+
+}
+
+.card-body
+{
+    display:flex;
+    flex-direction: column;
+    background-color: #4fccc6;
+    background-blend-mode: lighten;
+    border-radius: 15%;
+    text-align: center;
+    font-size: 15px;
+  
+}
+
+h5
+{
+    color:white;
+    font-size: 30px;
+    font-style: Impact, fantasy;
+    text-align: center; 
+}
+#img:hover 
+{
+    opacity: 0.3;
+    transition: .5s ease;
+    background-color: #bfdcddf1;
+    border-radius: 10%;
+}
+
+#current
+{
+    color: white;
+    font-size: 30px;
+    font-style: Impact, fantasy;
+    
+}
+
+header
+{
+    
+    background-color: #2dd2cb;
+    margin:0px;
+    padding: 14px;
+
+}
+
+span
+{
+    background-color: #b3f3f0;
+}
+.card-text
+{
+    font-size: 18px;
+    color:rgba(255, 255, 255, 0.671); 
+    font-style: Impact, fantasy;
+    text-align: center; 
+}
+#edit
+{
+    font-size: 20px;
+    
+}
+#del
+{
+    font-size: 20px;
+    color: rgb(255, 102, 0);
+
+
+}
+h1
+{
+    color: white;
+    font-size: 30px;
+    font-style: Impact, fantasy;
+}
+.form_comp
+{
+    font-size: 20px;
+    font-style: Impact, fantasy; 
+}
+.btn-secondary
+{
+    
+    color:#348682;
+    background-color: #b3f3f0;
+    justify-content: center;
+
+}
+.table
+{
+    font-size: 20px;
+    font-style: Impact, fantasy; 
+
+}
+#headd
+{
+    background-color: rgb(201, 199, 199);
+}
+.emo
+{
+    font-size: 30px;
+}

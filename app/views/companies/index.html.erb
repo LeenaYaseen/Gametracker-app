@@ -1,27 +1,34 @@
-<%= link_to "Add a Company", new_company_path, { :class => "button waves-effect waves-light btn" } %>
+<header>
+
+<h1 id="current"><strong><%= current_user.email %>'s Companies</strong></h1>
+
+</header>
+
+<body>
+<p id="c_button"><%= link_to "Add a Company", new_company_path, { :class => "btn btn-secondary btn-lg" } %></p>
 <br><br>
 
-<table class="striped bordered">
-  <tr>
-    <th>Company Name</th>
-    <th>Platform</th>
-    <th>Logo</th>
-  </tr>
+<div class="card-group">
+  
+<% @companies.each do |company| %>
+  
+  <div class="card">
+  <p id="img"><%= link_to image_tag(company.logo, size: "300x150", alt: "Company Image"),company_path(company) %></p>
+  <div class="card-body">
+  <h5 class="card-title"><%= company.name %></h5>
+  <p class="card-text"><%= company.platform %></p>
+  <p id="edit" class="glyphicon glyphicon-wrench"><em><a href="<%= edit_company_path(company) %>">Edit</a></em></p> 
+  <p id ="del"class = "glyphicon glyphicon-fire"><em><%= link_to "Delete", company_path(company.id), method: :delete,
+  data: { confirm: "Are you sure?" }%></em> </p>
+  </div>
+  </div>
+  
+<% end %>
+</div>
+ 
+</body>
 
-  <% @companies.each do |company| %>
-      <tr>
-        <td><%= link_to company.name, company_path(company) %></td>
-        <td><%= company.platform %></td>
-        <td><%= image_tag(company.logo, size: "100x100", alt: "Company Image") %></td>
-        <td><a class="btn-floating btn-large red" href="<%= edit_company_path(company) %>" >
-           <em class="large material-icons">Edit</em>
-          </a>
-          </td>
-        <td> 
-           <%= button_to "Delete", company_path(company.id), method: :delete,
-              data: { confirm: "Are you sure?" } %>
-              </td>
 
-        </tr>
-  <% end %>
-</table>
+
+  
+

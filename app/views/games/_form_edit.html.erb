@@ -1,0 +1,17 @@
+<%= form_for @game do |f| %>
+  
+    <%= f.hidden_field :game_id, :value => @game.id %>
+
+    <div class="input-field col s6">
+        <p class = "form_comp"><%= f.label :status, 'Game Status' %></p>
+        <%= f.select :status, options_for_select([["Select One", ""], "true", "false"]), :class => 'genForm_dropBox' %>
+    </div>
+    <br>
+    <br>
+    <br>
+  <%= f.submit "Submit", :class => "btn btn-success" %> 
+  <%= link_to 'Back', companies_path , { :class => "btn btn-warning"}%>
+
+  <% end %>
+
+ 

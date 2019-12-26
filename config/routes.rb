@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root'companies#index'
   resources :companies, :games
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 
   get "games", to: "games#index"
   get "games/new", to: "games#new"
+  get "games/:id", to: "gamess#show"
   get "games/:id/edit", to: "games#edit" , as: :game_edit
   patch "games/:id", to: "games#update"
   delete "games/:id", to: "games#destroy"

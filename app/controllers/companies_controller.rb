@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
+
+  before_action :authenticate_user!
     def index
-        @companies = Company.all  
+        @companies = Company.where(user_id: current_user.id)  
     end
 
     def show
@@ -13,7 +15,11 @@ class CompaniesController < ApplicationController
     end
 
     def create
-        Company.create(params.require(:company).permit(:name, :platform, :logo))
+        @company=Company.new(params.require(:company).permit(:name, :platform, :logo, :user_id))
+        @company.user_id = current_user.id
+        @company.save
+
+
         redirect_to companies_path
       end
 
@@ -23,9 +29,9 @@ class CompaniesController < ApplicationController
 
       def update
         company = Company.find(params[:id])
-        company.update(params.require(:artist).permit(:name, :platform, :logo))
+        company.update(params.require(:company).permit(:name, :platform, :logo))
           
-        redirect_to company
+        redirect_to companies_path
       end
 
       def destroy
